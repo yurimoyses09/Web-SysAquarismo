@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Text;
+using Web.SysAquarismo.Domain.Models;
 
 namespace Web.SysAquarismo.Services.PaginaPrincipalService;
 
@@ -8,22 +8,20 @@ public class PaginaPrincipalService : IPaginaPrincipalService
     public async Task<dynamic> BuscaDadosUsuario(string nome_usuario)
     {
         HttpResponseMessage response = new HttpResponseMessage();
-        string url = "https://localhost:5001/api/v1/usuario/login";
+        string url = $"https://localhost:5001/api/v1/usuario/{nome_usuario}";
 
         try
 		{
-            var dados = new { nome_usuario = nome_usuario };
-
             using (var client = new HttpClient())
             {
-                string jsonRequestData = JsonConvert.SerializeObject(dados);
+                response = await client.GetAsync(url);
 
-                var content = new StringContent(jsonRequestData, Encoding.UTF8, "application/json");
+                if (response.IsSuccessStatusCode) 
+                {
+                    string retorno = await response.Content.ReadAsStringAsync();
 
-                response = await client.PostAsync(url, content);
-
-                if (response.IsSuccessStatusCode)
-                    return true;
+                    return JsonConvert.DeserializeObject<Usuario>(retorno);
+                }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     return false;

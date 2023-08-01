@@ -10,4 +10,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Web.SysAquarismo.Domain\Web.SysAquarismo.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

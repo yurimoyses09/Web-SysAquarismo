@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using Web.SysAquarismo.Services.LoginService;
 
 namespace Web.SysAquarismo.Controllers;
@@ -6,9 +8,12 @@ namespace Web.SysAquarismo.Controllers;
 public class LoginController : Controller
 {
     private readonly ILoginService _service;
-    public LoginController(ILoginService service)
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    private ISession _session => _httpContextAccessor.HttpContext.Session;
+    public LoginController(ILoginService service, IHttpContextAccessor httpContextAccessor)
     {
         _service = service;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public IActionResult Index()
@@ -27,15 +32,23 @@ public class LoginController : Controller
     {
         try
         {
-            bool validaLogin = await _service.Login(nome_usuario, senha);
+            if (ModelState.IsValid)
+            {
+                bool validaLogin = await _service.Login(nome_usuario, senha);
 
-            if (validaLogin) 
-                return Redirect("/Principal");
+                if (validaLogin)
+                {
+                    _session.SetString("usuarioLogado", nome_usuario);
+                    return Redirect("/Principal");
+                }
+            }
 
+            ViewBag.ErrorMessage = "Usuario nao possui cadastro no sistema :(";
             return Redirect("/");
         }
-        catch (Exception ex)
+        catch (Exception)
         {
+            ViewBag.ErrorMessage = "Credenciais inválidas.";
             return Redirect("/");
         }
     }

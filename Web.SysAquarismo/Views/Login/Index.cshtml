@@ -1,12 +1,11 @@
 ﻿@using Web.SysAquarismo.Controllers;
 @using System;
-@{
-    var mensagem = TempData["Mensagem"] as string;
-}
+@using Web.SysAquarismo.Domain.Models;
 
 @{
-    ViewData["Title"] = "Login Page";
+    ViewBag.Title = "Login";
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,6 +74,14 @@
 
                                     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "row g-4 needs-validation" }))
                                     {
+                                        @Html.AntiForgeryToken()
+                                        if (@ViewBag.Message != null)
+                                        {
+                                            <div style="border:1px solid red">
+                                                @ViewBag.Message
+                                            </div>
+                                        }
+
                                         <form class="row g-4 needs-validation" id="form_login" novalidate>
 
                                             <div class="col-12">
