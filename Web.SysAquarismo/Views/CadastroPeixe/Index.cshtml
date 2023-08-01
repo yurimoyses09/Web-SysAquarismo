@@ -179,82 +179,84 @@
 
         <div class="card">
             <div class="card-body pt-3">
-                <form class="row g-1">
+                @using (Html.BeginForm("CadastraPeixe", "CadastraPeixe", FormMethod.Post, new { @class = "row g-1" }))
+                {
+                    <form class="row g-1">
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nome_peixe" required>
-                        <label for="floatingInput">Nome</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nome_peixe" id="nome_peixe" required>
+                            <label for="floatingInput">Nome</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="especie">
-                        <label for="floatingInput">Especie</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="especie" id="especie">
+                            <label for="floatingInput">Especie</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="descricao_peixe">
-                        <label for="floatingInput">Descrição</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="descricao_peixe" id="descricao_peixe">
+                            <label for="floatingInput">Descrição</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <select class="form-select" aria-label="Floating label select example" id="sexo" required>
-                            <option selected disabled value="">Escolha...</option>
-                            <option value="3">MACHO</option>
-                            <option value="4">FEMEA</option>
-                        </select>
-                        <label class="floatingSelect">Sexo</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Floating label select example" name="sexo" id="sexo" required>
+                                <option selected disabled value="">Escolha...</option>
+                                <option value="3">MACHO</option>
+                                <option value="4">FEMEA</option>
+                            </select>
+                            <label class="floatingSelect">Sexo</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="peso">
-                        <label for="floatingInput">Peso</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="peso" id="peso">
+                            <label for="floatingInput">Peso</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nome_login">
-                        <label for="floatingInput">Tamanho</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nome_login" id="nome_login">
+                            <label for="floatingInput">Tamanho</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <select class="form-select" aria-label="Floating label select example" id="st_saude" required>
-                            <option selected disabled value="">Escolha...</option>
-                            <option value="3">SAUDAVEL</option>
-                            <option value="4">DOENTE</option>
-                            <option value="5">MORTO</option>
-                        </select>
-                        <label class="floatingSelect">Saude</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Floating label select example" name="st_saude" id="st_saude" required>
+                                <option selected disabled value="">Escolha...</option>
+                                <option value="3">SAUDAVEL</option>
+                                <option value="4">DOENTE</option>
+                                <option value="5">MORTO</option>
+                            </select>
+                            <label class="floatingSelect">Saude</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="dt_morte">
-                        <label for="floatingInput">Data da morte</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" name="dt_morte" id="dt_morte">
+                            <label for="floatingInput">Data da morte</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="ds_doenca">
-                        <label for="floatingInput">Descrição da doença</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" name="ds_doenca" id="ds_doenca">
+                            <label for="floatingInput">Descrição da doença</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="dt_aquisao">
-                        <label for="floatingInput">Data da aquisição</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" name="dt_aquisao" id="dt_aquisao">
+                            <label for="floatingInput">Data da aquisição</label>
+                        </div>
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" type="file" id="img_peixe">
-                        <label for="floatingInput">Foto do peixe</label>
-                    </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="file" name="img_peixe" id="img_peixe">
+                            <label for="floatingInput">Foto do peixe</label>
+                        </div>
 
-                    <div class="col-12">
-                        <button class="btn btn-primary w-100" type="submit">Finalizar cadastro</button>
-                    </div>
-                </form>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100" type="submit">Finalizar cadastro</button>
+                        </div>
+                    </form>
+                }
             </div>
         </div>
 
     </main>
     <!-- End #main -->
-
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">

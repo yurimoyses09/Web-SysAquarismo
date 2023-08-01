@@ -9,4 +9,18 @@ public class CadastroPeixeController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public IActionResult CadastraPeixe() 
+    {
+        try
+        {
+            return Ok();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
 }

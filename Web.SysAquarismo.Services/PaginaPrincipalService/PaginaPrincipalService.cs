@@ -20,7 +20,9 @@ public class PaginaPrincipalService : IPaginaPrincipalService
                 {
                     string retorno = await response.Content.ReadAsStringAsync();
 
-                    return JsonConvert.DeserializeObject<Usuario>(retorno);
+                    var test = JsonConvert.DeserializeObject<Usuario>(retorno);
+
+                    return test;
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
