@@ -19,7 +19,6 @@ public class CadastroPeixeController : Controller
         }
         catch (Exception)
         {
-
             throw;
         }
     }

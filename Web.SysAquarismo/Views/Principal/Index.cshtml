@@ -61,12 +61,12 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">@Model.data.FirstOrDefault().ds_Nome_Usuario_Login</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">@Model.data.FirstOrDefault().nome_login</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>@Model.data.FirstOrDefault().ds_Nome_Usuario_Login</h6>
+                            <h6>@Model.data.FirstOrDefault().nome_login</h6>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
@@ -222,7 +222,7 @@
                                     <h5 class="card-title">Peixes doentes :(</h5>
                                     <div class="d-flex align-items-center">
                                         <div class="ps-3">
-                                            <h6>2</h6>
+                                            <h6>@Model.data.FirstOrDefault().peixes.Where(x => x.id_saude == "2").ToList().Count</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -247,26 +247,30 @@
                                                 <th scope="col">Status</th>
                                             </tr>
                                         </thead>
+
                                         <tbody>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2457</a></th>
-                                                <td>Black</td>
-                                                <td><a href="#" class="text-primary">kinguio</a></td>
-                                                <td><span class="badge bg-success">Saudavel</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2457</a></th>
-                                                <td>Cleide</td>
-                                                <td><a href="#" class="text-primary">kinguio</a></td>
-                                                <td><span class="badge bg-warning">Doente</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2644</a></th>
-                                                <td>Angus</td>
-                                                <td><a href="#" class="text-primar">Beta</a></td>
-                                                <td><span class="badge bg-danger">Faleceu</span></td>
-                                            </tr>
+
+                                            @foreach (var item in Model.data.FirstOrDefault().peixes)
+                                            {
+                                                <tr>
+                                                    <th scope="row"><a href="#">#@item.id_peixe</a></th>
+                                                    <td>@item.nome_peixe</td>
+                                                    <td><a href="#" class="text-primary">@item.nome_especie</a></td>
+                                                    @if (item.id_saude == "1")
+                                                    {
+                                                        <td><span class="badge bg-success">Saudavel</span></td>
+                                                    }@if (item.id_saude == "2")
+                                                    {
+                                                        <td><span class="badge bg-warning">Doente</span></td>
+                                                    }
+                                                    @if (item.id_saude == "3")
+                                                    {
+                                                        <td><span class="badge bg-danger">Faleceu</span></td>
+                                                    }
+                                                </tr>
+                                            }
                                         </tbody>
+
                                     </table>
 
                                 </div>

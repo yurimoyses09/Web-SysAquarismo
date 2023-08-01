@@ -2,17 +2,18 @@
 
 public class Peixe
 {
-    public int id_Peixe { get; set; }
-    public int id_Usuario { get; set; }
-    public string ds_Nome_Peixe { get; set; }
-    public string ds_Nome_Especie { get; set; }
-    public object ds_Descricao { get; set; }
+    public int id_peixe { get; set; }
+    public int id_usuario { get; set; }
+    public string nome_peixe { get; set; }
+    public string nome_especie { get; set; }
+    public object descricao { get; set; }
     public object sexo { get; set; }
-    public int vl_Peso { get; set; }
-    public int vl_Tamanho { get; set; }
-    public DateTime ds_Data_Morte { get; set; }
-    public string ds_Imagem { get; set; }
-    public object ds_status_Saude { get; set; }
+    public int peso { get; set; }
+    public int tamenho { get; set; }
+    public DateTime dt_morte { get; set; }
+    public string ds_imagem { get; set; }
+    public object ds_saude { get; set; }
     public string ds_doenca { get; set; }
-    public DateTime ds_Data_Aquisicao { get; set; }
+    public DateTime dt_aquisicao { get; set; }
+    public string id_saude { get; set; }
 }

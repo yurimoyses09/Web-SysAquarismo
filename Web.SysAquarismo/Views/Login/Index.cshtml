@@ -75,10 +75,10 @@
                                     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "row g-4 needs-validation" }))
                                     {
                                         @Html.AntiForgeryToken()
-                                        if (@ViewBag.Message != null)
+                                        if (TempData["ErroMensagem"] != null)
                                         {
-                                            <div style="border:1px solid red">
-                                                @ViewBag.Message
+                                            <div class="alert alert-danger">
+                                                @TempData["ErroMensagem"]
                                             </div>
                                         }
 
@@ -100,10 +100,6 @@
 
                                             <div class="col-12">
                                                 <button class="btn btn-primary w-100" type="submit">Login</button>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <p class="small mb-0">ACESSO DIRETO <a href="Principal">ACESSO DIRETO</a></p>
                                             </div>
 
                                             <div class="col-12">

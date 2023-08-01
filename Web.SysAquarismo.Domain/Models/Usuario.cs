@@ -8,15 +8,15 @@ public class Usuario
 
 public class Data
 {
-    public int id_Usuario { get; set; }
-    public object nome_Usuario { get; set; }
+    public int id_usuario { get; set; }
+    public object nome_usuario { get; set; }
     public int idade { get; set; }
-    public object ds_Telefone { get; set; }
-    public object ds_Email { get; set; }
-    public string ds_Nome_Usuario_Login { get; set; }
-    public object ds_Senha { get; set; }
+    public object tefelone { get; set; }
+    public object email { get; set; }
+    public string nome_login { get; set; }
+    public object senha_usuario { get; set; }
     public object sexo { get; set; }
-    public object ds_Pais { get; set; }
+    public object pais { get; set; }
     public List<Peixe> peixes { get; set; }
 }
 

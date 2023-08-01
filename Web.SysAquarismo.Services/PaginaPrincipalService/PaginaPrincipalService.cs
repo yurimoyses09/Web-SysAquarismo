@@ -11,18 +11,16 @@ public class PaginaPrincipalService : IPaginaPrincipalService
         string url = $"https://localhost:5001/api/v1/usuario/{nome_usuario}";
 
         try
-		{
+        {
             using (var client = new HttpClient())
             {
                 response = await client.GetAsync(url);
 
-                if (response.IsSuccessStatusCode) 
+                if (response.IsSuccessStatusCode)
                 {
                     string retorno = await response.Content.ReadAsStringAsync();
 
-                    var test = JsonConvert.DeserializeObject<Usuario>(retorno);
-
-                    return test;
+                    return JsonConvert.DeserializeObject<Usuario>(retorno);
                 }
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -31,9 +29,9 @@ public class PaginaPrincipalService : IPaginaPrincipalService
                 return false;
             }
         }
-		catch (Exception)
-		{
-			throw;
-		}
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }

@@ -43,12 +43,12 @@ public class LoginController : Controller
                 }
             }
 
-            ViewBag.ErrorMessage = "Usuario nao possui cadastro no sistema :(";
+            TempData["ErroMensagem"] = "Usuario nao possui cadastro no sistema, crie sua conta :)";
             return Redirect("/");
         }
         catch (Exception)
         {
-            ViewBag.ErrorMessage = "Credenciais inválidas.";
+            TempData["ErroMensagem"] = "Credenciais inválidas.";
             return Redirect("/");
         }
     }
