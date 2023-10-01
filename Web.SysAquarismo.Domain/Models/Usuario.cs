@@ -3,7 +3,7 @@
 
 public class Usuario
 {
-    public List<Data> data { get; set; }
+    public Data data { get; set; }
 }
 
 public class Data

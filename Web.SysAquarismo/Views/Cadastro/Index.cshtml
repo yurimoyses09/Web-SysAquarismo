@@ -31,14 +31,6 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: NiceAdmin
-    * Updated: May 30 2023 with Bootstrap v5.3.0
-    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-    * Author: Yuri Moyses
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 
 <body>
@@ -68,6 +60,14 @@
                                     </div>
                                     @using (Html.BeginForm("Cadastro", "Cadastro", FormMethod.Post, new { @class = "row g-2" }))
                                     {
+                                        @Html.AntiForgeryToken()
+                                        if (TempData["ErroMensagem"] != null)
+                                        {
+                                            <div class="alert alert-danger">
+                                                @TempData["ErroMensagem"]
+                                            </div>
+                                        }
+
                                         <form class="row g-2">
 
                                             <div class="form-floating mb-3">

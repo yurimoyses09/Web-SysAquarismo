@@ -22,12 +22,24 @@ public class CadastroController : Controller
     {
         try
         {
-            await _service.Cadastro(nome, idade_usuario, email_usuario, sexo_usuario, pais_origem, nome_login, senha_usuario, telefone_usuario);
+            await _service.Cadastro
+                (
+                    nome, 
+                    idade_usuario, 
+                    email_usuario, 
+                    sexo_usuario, 
+                    pais_origem, 
+                    nome_login, 
+                    senha_usuario, 
+                    telefone_usuario
+               );
+            
             return Redirect("/Cadastro");
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            TempData["ErroMensagem"] = ex.Message;
+            return Redirect("/");
         }
     }
 }

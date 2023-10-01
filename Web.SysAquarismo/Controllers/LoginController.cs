@@ -46,9 +46,9 @@ public class LoginController : Controller
             TempData["ErroMensagem"] = "Usuario nao possui cadastro no sistema, crie sua conta :)";
             return Redirect("/");
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            TempData["ErroMensagem"] = "Credenciais inválidas.";
+            TempData["ErroMensagem"] = ex.Message;
             return Redirect("/");
         }
     }

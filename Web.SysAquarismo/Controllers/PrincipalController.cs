@@ -17,7 +17,7 @@ public class PrincipalController : Controller
     }
 
     [Route("/Principal")]
-    public async Task<ActionResult> Index(string nome_usuario)
+    public async Task<ActionResult> Index()
     {
         if (_session.IsAvailable)
         {
@@ -38,6 +38,25 @@ public class PrincipalController : Controller
         }
         catch (Exception)
         {
+            throw;
+        }
+    }
+
+    [HttpPost]
+    public IActionResult RealizaLogout()
+    {
+        try
+        {
+            if (_session.IsAvailable) 
+            {
+                _session.Clear();
+            }
+
+            return Redirect("/Login");
+        }
+        catch (Exception)
+        {
+
             throw;
         }
     }

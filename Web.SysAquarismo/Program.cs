@@ -1,3 +1,4 @@
+using Web.SysAquarismo.Services.CadastroPeixeService;
 using Web.SysAquarismo.Services.CadastroUsuarioService;
 using Web.SysAquarismo.Services.LoginService;
 using Web.SysAquarismo.Services.PaginaPrincipalService;
@@ -11,6 +12,7 @@ builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<ICadastroUsuarioService, CadastroUsuarioService>();
 builder.Services.AddScoped<IPaginaPrincipalService, PaginaPrincipalService>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<ICadastroPeixeService, CadastroPeixeService>();
 
 // Habilitar o uso de sessão
 builder.Services.AddSession(opt =>
