@@ -73,10 +73,11 @@
             </ul>
         </nav><!-- End Icons Navigation -->
 
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
+
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
-
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
@@ -84,19 +85,13 @@
                     <i class="bi bi-grid"></i>
                     <span>Opções</span>
                 </a>
-            </li><!-- End Dashboard Nav -->
+            </li> <!-- End Dashboard Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="CadastroPeixe">
                     <i class="bi bi-person"></i><span>Cadastrar Peixe</span>
                 </a>
-            </li><!-- End Forms Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="page-buscar-peixe.html">
-                    <i class="bi bi-person"></i><span>Buscar por peixe</span>
-                </a>
-            </li><!-- End Forms Nav -->
+            </li> <!-- End Forms Nav -->
 
             <li class="nav-heading">Paginas</li>
 
@@ -105,14 +100,14 @@
                     <i class="bi bi-person"></i>
                     <span>Perfil do Usuario</span>
                 </a>
-            </li><!-- End Profile Page Nav -->
+            </li> <!-- End Profile Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact.html">
                     <i class="bi bi-envelope"></i>
                     <span>Tem alguma sugestão? :)</span>
                 </a>
-            </li><!-- End Contact Page Nav -->
+            </li> <!-- End Contact Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="">
@@ -173,6 +168,7 @@
                             </div>
                         </div>
                         <!-- End Total de peixes Card -->
+
                         <!-- Total de peixes doentes Card -->
                         <div class="col-xxl-4 col-md-6">
                             <div class="card info-card revenue-card">
@@ -200,6 +196,7 @@
                             </div>
                         </div>
                         <!-- End Total de peixes doentes Card -->
+                        
                         <!--Atividades recentes -->
                         <div class="col-12">
                             <div class="card recent-sales overflow-auto">
@@ -224,9 +221,9 @@
                                                 @if (item != null)
                                                 {
                                                     <tr>
-                                                        <th scope="row"><a href="#">#@item.id_peixe</a></th>
+                                                        <th scope="row"><a href="InfoPeixe">#@item.id_peixe</a></th>
                                                         <td>@item.nome_peixe</td>
-                                                        <td><a href="#" class="text-primary">@item.nome_especie</a></td>
+                                                        <td><a class="text-primary">@item.nome_especie</a></td>
                                                         @if (item.id_saude == "1")
                                                         {
                                                             <td><span class="badge bg-success">Saudavel</span></td>
@@ -239,15 +236,11 @@
                                                             <td><span class="badge bg-danger">Faleceu</span></td>
                                                         }
                                                     </tr>
-
                                                 }
                                             }
                                         </tbody>
-
                                     </table>
-
                                 </div>
-
                             </div>
                         </div>
                         <!-- End Atividades Sales -->
@@ -260,6 +253,7 @@
         </section>
 
     </main><!-- End #main -->
+    
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
